@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!...background...!>
+<style>
+
+
+body {
+  background-image: url('image/background_3.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+{
+		margin:0;
+ 		padding:0;
+ 	}
+   	ul	{
+            list-style-type: none;
+            overflow: hidden;
+            border: 3px solid white;
+            background-color: #5499C7;
+ 	}
+
+    	li	{
+		float:left;
+      }
+
+	li a {
+		display:block;
+            color: #000;
+            text-decoration: none;
+            text-align: center;
+		font-size: 20px;
+		padding: 20px 20px;
+		transition: all 0.3s ease 0s;
+	}
+
+	
+	li a:hover {
+		background-color:red;
+	}
+
+	li.contactme {
+		float:left;
+	}
+
+	li.contactme a {
+		background-color: yellow;
+		color: red;
+		transition; all 0.3s ease 0s;
+	}
+
+	li.contactme a:hover {
+		background-color: #018e39:
+	}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: #85C1E9;
+  color: white;
+}
+</style>
+<title>Education</title>
+</head>
+<body>
+
+<ul>	
+		<li><a href="index.html">Home</a></li>
+		<li><a href="aboutme.html">About Me</a></li>
+		<li><a href="education.html">Education</a></li>
+		<li><a href="myfamily.html">My Family</a></li>
+		<li><a href="myfriends.html">My Friends</a></li>
+		<li><a href="favfood&drink.html">Fav Food & Drink</a></li>
+		<li class="contactme"><a href="contactme.html">Contact Me</a></li>
+	</ul>
+
+<center>
+<h1 style="font-face:Adelia; color:white; font size:80px; text-shadow: 6px 6px 40px white; background-color:#AED6F1;">&#9733; EDUCATION &#9733;</h1>
+
+
+<table border="1"width="30%" align="right" background="image/tableimage_2.jpg" style="text-align:center">
+<tr>
+	<td rowspan="2">&#128513;</td>
+	<th>My Clock</th>
+</tr>
+<tr>
+	<td><canvas id="canvas" width="200" height="200"
+	style="background-color:transparent">
+	</canvas>
+
+	<div id="clock">
+ 	 <h1 id="date-time"></h1>
+	</div>
+
+	<script>
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+	var radius = canvas.height / 2;
+	ctx.translate(radius, radius);
+	radius = radius * 0.90
+	setInterval(drawClock, 1000);
+
+	function drawClock() {
+  	drawFace(ctx, radius);
+  	drawNumbers(ctx, radius);
+  	drawTime(ctx, radius);
+	}
+
+	function drawFace(ctx, radius) {
+  	var grad;
+  	ctx.beginPath();
+  	ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  	ctx.fillStyle = 'white';
+  	ctx.fill();
+ 	 grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  	grad.addColorStop(0, '#333');
+  	grad.addColorStop(0.5, 'white');
+  	grad.addColorStop(1, '#333');
+  	ctx.strokeStyle = grad;
+  	ctx.lineWidth = radius*0.1;
+ 	 ctx.stroke();
+ 	 ctx.beginPath();
+  	ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+  	ctx.fillStyle = '#333';
+  	ctx.fill();
+	}
+
+	function drawNumbers(ctx, radius) {
+  	var ang;
+  	var num;
+  	ctx.font = radius*0.15 + "px arial";
+ 	 ctx.textBaseline="middle";
+ 	 ctx.textAlign="center";
+  	for(num = 1; num < 13; num++){
+    	ang = num * Math.PI / 6;
+    	ctx.rotate(ang);
+    	ctx.translate(0, -radius*0.85);
+    	ctx.rotate(-ang);
+    	ctx.fillText(num.toString(), 0, 0);
+    	ctx.rotate(ang);
+    	ctx.translate(0, radius*0.85);
+   	 ctx.rotate(-ang);
+  	}
+	}
+
+	function drawTime(ctx, radius){
+   	 var now = new Date();
+   	 var hour = now.getHours();
+   	 var minute = now.getMinutes();
+   	 var second = now.getSeconds();
+   	 //hour
+   	 hour=hour%12;
+    	hour=(hour*Math.PI/6)+
+    	(minute*Math.PI/(6*60))+
+    	(second*Math.PI/(360*60));
+    	drawHand(ctx, hour, radius*0.5, radius*0.07);
+    	//minute
+    	minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    	drawHand(ctx, minute, radius*0.8, radius*0.07);
+    	// second
+    	second=(second*Math.PI/30);
+    	drawHand(ctx, second, radius*0.9, radius*0.02);
+	}
+
+	function drawHand(ctx, pos, length, width) {
+    	ctx.beginPath();
+    	ctx.lineWidth = width;
+    	ctx.lineCap = "round";
+    	ctx.moveTo(0,0);
+    	ctx.rotate(pos);
+    	ctx.lineTo(0, -length);
+    	ctx.stroke();
+    	ctx.rotate(-pos);
+	}
+	</script>
+
+
+<tr>
+	<td rowspan="2"></td>
+	<th>Waktu Solat</th>
+</tr>
+<tr align="l">
+<script type="text/javascript" src="http://www.muslimpro.com/muslimprowidget.js?cityid=1735498&language=en&width=350&timeformat=24&headerbackgroundcolor=888888&headertextcolor=000000&textcolor=000000&rowbackgroundcolor1=eeeeee&rowbackgroundcolor2=cccccc" async></script>
+</tr>
+</td>
+<tr>
+	<td rowspan="2">&#128151;</td>
+	<th>My Song</th>
+</tr>
+	<td><embed src="video/creepin.mp4"></embed>
+</tr>
+</table>
+
+<table style="width:50%" border="5" align="left" background="image/tableimage_1.jpg">
+  <tr style="color:white">
+    <td rowspan="2"><img src="image/imageeducation_1.jpg"</td>
+    <th>Education</th>
+    <th>Year</th>
+  </tr>
+   <td style="color:white">SEKOLAH KEBANGSAAN BATU HAMPAR</td>
+   <td style="color:yellow">2008 until 2013</td>
+  </tr>
+
+   <tr style="color:white">
+    <td rowspan="2"><img src="image/imageeducation_2.jpg"</td>
+  </tr>
+   <td style="color:white">MAKTAB MAHMUD MERBOK</td>
+   <td style="color:yellow">2014 until 2018</td>
+  </tr>
+
+ <tr style="color:white">
+    <td rowspan="2"><img src="image/imageeducation_3.jpg"</td>
+  </tr>
+   <td style="color:white">SEKOLAH MENENGAH KEBANGSAAN MERBOK</td>
+   <td style="color:yellow">2019 until 2020</td>
+  </tr>
+
+  <tr style="color:white">
+    <td rowspan="2"><img src="image/imageeducation_5.jpg"</td>
+  </tr>
+   <td style="color:white">Universiti Teknologi Mara Kampus Sungai Petani</td>
+   <td style="color:yellow">2021 until 2024</td>
+  </tr>  
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer>
+  <p>Author: Aqil Paan<br>
+  <a href="mailto:aqilwadey16@gmail.com">aqilwadey16@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
